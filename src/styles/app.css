@@ -1,0 +1,74 @@
+/* Minimal overrides on top of Bootstrap — only what Bootstrap does not cover */
+
+body {
+  min-height: 100vh;
+  background-color: var(--bs-gray-100);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Planning poker cards (custom UI, not a Bootstrap component) */
+.deck {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.deck-card {
+  width: 3.5rem;
+  height: 4.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  font-variant-numeric: tabular-nums;
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.deck-card:hover:not(:disabled) {
+  border-color: var(--bs-primary);
+  box-shadow: 0 0.125rem 0.35rem rgba(0, 0, 0, 0.08);
+}
+
+.deck-card.selected {
+  border-color: var(--bs-primary);
+  background-color: rgba(var(--bs-primary-rgb), 0.1);
+  box-shadow: 0 0 0 0.15rem rgba(var(--bs-primary-rgb), 0.25);
+}
+
+.deck-card.highlight:not(.selected) {
+  border-color: var(--bs-info);
+}
+
+.deck-card:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.vote-chip-card {
+  min-width: 2.25rem;
+  height: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  border-radius: var(--bs-border-radius);
+  background-color: var(--bs-primary);
+  color: var(--bs-white);
+}
+
+.story-desc {
+  white-space: pre-wrap;
+}
+
+.room-code {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.08em;
+}
